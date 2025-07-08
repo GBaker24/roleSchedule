@@ -8,6 +8,10 @@ $roleList = @()
 $techList = @()
 $assignments = @()
 
+$datecsv = Get-Date -Format "MM_dd_yyyy_HHmm"
+$csvtitle = "Calendar"
+$csvname = $csvtitle + $datecsv
+
 function Rotate-Array {
     param (
         [array]$array
@@ -58,4 +62,4 @@ for ($i = 0; $i -lt $weeks; $i ++) {
 }
 
 
-$assignments | Export-Csv -NoTypeInformation "C:/temp/assignment.csv"
+$assignments | Export-Csv -NoTypeInformation "C:/temp/$csvname.csv"
